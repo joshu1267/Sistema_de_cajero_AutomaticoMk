@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Retiro Sin Tarjeta - BANCO VORTEX</title>
+    <style type="text/css">
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('images/fondo-signo-dolar.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(26, 54, 93, 0.85);
+            z-index: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 46, 109, 0.2);
+            padding: 30px;
+            width: 500px;
+            border: 1px solid #e1e5eb;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            color: #1a2a3a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #1a2a3a;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 22px;
+        }
+
+        .divider {
+            margin: 25px 0;
+            border: 0;
+            border-top: 1px solid #e1e5eb;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e1e5eb;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #f8f9fa;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            background-image: linear-gradient(to bottom, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 46, 109, 0.3);
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        /* Estilos para PrimeFaces */
+        .ui-password-panel {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e1e5eb;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="header">BANCO VORTEX</div>
+
+        <h2>Retiro sin tarjeta</h2>
+
+        <hr class="divider"/>
+
+        <h:form>
+            <div class="form-group">
+                <p:outputLabel for="cuenta" value="Número de cuenta" />
+                <p:inputText id="cuenta" styleClass="form-input" />
+            </div>
+
+            <div class="form-group">
+                <p:outputLabel for="password" value="Contraseña" />
+                <p:password id="password" styleClass="form-input" feedback="false" />
+            </div>
+
+            <div class="form-group">
+                <p:outputLabel for="ci" value="C.I." />
+                <p:inputText id="ci" styleClass="form-input" />
+            </div>
+
+            <p:commandButton value="Validar"
+                             action="retiroFinal?faces-redirect=true"
+                             styleClass="submit-button"
+                             icon="pi pi-check"
+                             ajax="false"/>
+        </h:form>
+
+        <hr class="divider"/>
+
+        <div class="image-container">
+            <p:graphicImage name="images/retiro-sin-tarjeta.png" width="200"/>
+        </div>
+    </div>
+</h:body>
+</html>
